@@ -56,7 +56,7 @@ app.post('/api/notes', function (req, res) {
     title: req.body.title,
     content: req.body.content
   });
-  res.status(201).json(message);
+  //res.status(201).json(message);
 })
 
 //retrieve data from the db
