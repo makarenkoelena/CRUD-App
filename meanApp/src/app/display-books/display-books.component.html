@@ -1,0 +1,31 @@
+
+<mat-card>
+  <button mat-button [routerLink]="['/display']" color="Warn">Display Books</button>
+  <button mat-button [routerLink]="['/add']" color="Warn">Add review</button>
+  <button mat-button [routerLink]="['/list']">List reviews</button>
+
+  <router-outlet></router-outlet>
+
+</mat-card>
+
+
+<div class = "outside">
+<mat-expansion-panel *ngFor = "let item of bookArr.books" >
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{item.title}}
+    </mat-panel-title>
+
+  </mat-expansion-panel-header>
+  {{item.subtitle}}
+  <br>
+  <img src={{item.image}} />
+  <br>
+  <button mat-button [routerLink]="['/add']" color="Warn">Add review</button>
+</mat-expansion-panel>
+</div>
+
+
+
+
+

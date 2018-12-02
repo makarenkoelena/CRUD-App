@@ -1,0 +1,25 @@
+<mat-card >
+  <button mat-button [routerLink]="['/display']" color="Warn">Display Books</button>
+  <button mat-button [routerLink]="['/add']" color="Warn">Add review</button>
+  <button mat-button [routerLink]="['/list']">List all reviews</button>
+
+  <router-outlet></router-outlet>
+</mat-card>
+
+
+<!--<mat-accordion multi="true" *ngIf="notes.length > 0">-->
+  <mat-expansion-panel [expanded]="true" *ngFor="let note of notes">
+      <mat-expansion-panel-header>
+          {{ note.date }}
+        </mat-expansion-panel-header>
+    <mat-expansion-panel-header>
+      {{ note.title }}
+    </mat-expansion-panel-header>
+    <p>{{ note.content }}</p>
+    <mat-action-row>
+      <button mat-button [routerLink]="['/edit', note._id]" color="black">EDIT</button>
+      <button mat-button (click)="onDelete(note._id)" color="black">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+<!--</mat-accordion>-->
+<p class="info-text mat-body-1" *ngIf="notes.length <= 0">No reviews added yet!</p>

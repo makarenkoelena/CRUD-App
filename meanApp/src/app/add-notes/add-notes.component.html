@@ -1,0 +1,48 @@
+<mat-card >
+  <button mat-button [routerLink]="['/display']" color="Warn">Display Books</button>
+  <button mat-button [routerLink]="['/add']" color="Warn">Add review</button>
+  <button mat-button [routerLink]="['/list']" color="Warn">List all reviews</button>
+
+  <router-outlet></router-outlet>
+</mat-card>
+
+<mat-card>
+  <form (submit)="onAddNote(noteForm)" #noteForm="ngForm">
+      <mat-form-field>
+          <input
+            matInput
+            type="date"
+            name="date"
+            ngModel
+            required
+            minlength="6"
+            #date="ngModel">
+          <mat-error *ngIf="date.invalid">Date.</mat-error>
+        </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        required
+        minlength="1"
+        #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter the book's title.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="5"
+        name="content"
+        ngModel
+        required
+        #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter review.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+
+      type="submit">Save review</button>
+  </form>
+</mat-card>
